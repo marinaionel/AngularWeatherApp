@@ -1,4 +1,4 @@
-const { writeFile } = require('fs');
+const { writeFile, mkdirSync, existsSync } = require('fs');
 const { argv } = require('yargs');
 const path = require('path');
 require('dotenv').config();
@@ -25,8 +25,8 @@ writeFile(targetPath, environmentFileContent, { flag: 'wx' }, function (err) {
 
 function ensureDirectoryExistence(filePath) {
     var dirname = path.dirname(filePath);
-    if (fs.existsSync(dirname))
+    if (existsSync(dirname))
         return true;
     ensureDirectoryExistence(dirname);
-    fs.mkdirSync(dirname);
+    mkdirSync(dirname);
 }
