@@ -15,8 +15,18 @@ export const environment = {
 };
 `;
 
+ensureDirectoryExistence(targetPath)
+
 // write the content to the respective file
 writeFile(targetPath, environmentFileContent, { flag: 'wx' }, function (err) {
     if (err) console.log(err);
     console.log(`Wrote variables to ${targetPath}`);
 })
+
+function ensureDirectoryExistence(filePath) {
+    var dirname = path.dirname(filePath);
+    if (fs.existsSync(dirname))
+        return true;
+    ensureDirectoryExistence(dirname);
+    fs.mkdirSync(dirname);
+}
