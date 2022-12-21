@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WeatherApiClientService, WeatherResponse } from './weather-api-client.service';
+import { CurrentWeatherResponse, ForecastWeatherResponse, WeatherApiClientService } from './weather-api-client.service';
 
 @Component({
     selector: 'app-config',
@@ -9,8 +9,8 @@ import { WeatherApiClientService, WeatherResponse } from './weather-api-client.s
 })
 export class WeatherComponent {
     error: any;
-    currentWeatherData: WeatherResponse | undefined;
-    forecastWeatherData: WeatherResponse | undefined;
+    currentWeatherData: CurrentWeatherResponse | undefined;
+    forecastWeatherData: ForecastWeatherResponse | undefined;
 
     constructor(private weatherService: WeatherApiClientService) { }
 
@@ -23,7 +23,7 @@ export class WeatherComponent {
     showCurrentWeather() {
         this.weatherService.getCurrentWeather()
             .subscribe({
-                next: (data: WeatherResponse) => this.currentWeatherData = { ...data },
+                next: (data: CurrentWeatherResponse) => this.currentWeatherData = { ...data },
                 error: error => this.error = error,
             });
     }
@@ -31,7 +31,7 @@ export class WeatherComponent {
     showForecastWeather() {
         this.weatherService.getForecastWeather()
             .subscribe({
-                next: (data: WeatherResponse) => this.currentWeatherData = { ...data },
+                next: (data: ForecastWeatherResponse) => this.forecastWeatherData = { ...data },
                 error: error => this.error = error,
             });
     }
