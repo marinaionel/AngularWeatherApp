@@ -24,4 +24,7 @@ jobs:
       run: npm run test
 
     - name: Build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
       run: npm run build
