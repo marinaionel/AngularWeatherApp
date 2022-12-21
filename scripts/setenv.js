@@ -1,6 +1,6 @@
 const { writeFile } = require('fs');
 const { argv } = require('yargs');
-
+const path = require('path');
 require('dotenv').config();
 
 const environment = argv.environment;
