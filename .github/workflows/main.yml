@@ -27,4 +27,5 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        WEATHER_API_BASE_URL: http://api.weatherapi.com/v1
       run: npm run build
