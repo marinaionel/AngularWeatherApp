@@ -1,0 +1,11 @@
+<h3>Get weather</h3>
+<div>
+    <button type="button" (click)="clear(); showCurrentWeather()">get current</button>
+    <button type="button" (click)="clear(); showForecastWeather()">get forecast</button>
+    <button type="button" (click)="clear()">clear</button>
+    <span>
+        <p *ngIf="currentWeatherData">Current weather: "{{currentWeatherData}}"</p>
+        <p *ngIf="forecastWeatherData">Forecast weather: "{{forecastWeatherData}}"</p>
+        <p *ngIf="error">Error: {{error}}</p>
+    </span>
+</div>

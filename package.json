@@ -7,7 +7,8 @@
     "start": "ng serve",
     "build": "npm run config && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "npm run build --prod && ng deploy --no-silent --base-href=https://github.com/marinaionel/AngularWeatherApp/ --name='marinaionel' --email='marinicaionel@gmail.com'"
   },
   "private": true,
   "dependencies": {
