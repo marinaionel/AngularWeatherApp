@@ -20,14 +20,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm run test
-
     - name: Build
       env:
         WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         WEATHER_API_BASE_URL: http://api.weatherapi.com/v1
       run: npm run build
+      
+    - name: Run tests
+      run: npm run test
       
     - name: Deploy to GitHub Pages
       env:
