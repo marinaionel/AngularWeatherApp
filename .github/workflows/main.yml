@@ -1,4 +1,4 @@
-name: Deploy Angular Weather App
+name: Build Angular Weather App
 
 on:
   push:
