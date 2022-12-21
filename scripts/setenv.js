@@ -16,7 +16,7 @@ export const environment = {
 `;
 
 // write the content to the respective file
-writeFile(targetPath, environmentFileContent, function (err) {
+writeFile(targetPath, environmentFileContent, { flag: 'wx' }, function (err) {
     if (err) console.log(err);
     console.log(`Wrote variables to ${targetPath}`);
 })
