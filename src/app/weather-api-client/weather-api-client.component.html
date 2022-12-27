@@ -6,27 +6,56 @@
     <button type="button" class="btn btn-default" (click)="clear()">CLEAR</button>
 </div>
 
-<div *ngIf="currentWeatherData">
-    <h3>Weather</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Humidity</th>
-                <th scope="col">Precipitations</th>
-                <th scope="col">UV index</th>
-                <th scope="col">Wind</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{currentWeatherData.current.humidity}}</td>
-                <td>{{currentWeatherData.current.precip_mm}} mm</td>
-                <td>{{currentWeatherData.current.uv}}</td>
-                <td>{{currentWeatherData.current.wind_kph}} km/h</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<section class="vh-100" style="background-color: #4B515D;" *ngIf="currentWeatherData">
+    <div class="container py-5 h-100">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+
+                <div class="card" style="color: #4B515D; border-radius: 35px;">
+                    <div class="card-body p-4">
+
+                        <div class="d-flex">
+                            <h6 class="flex-grow-1">{{currentWeatherData.location.name}}</h6>
+                            <h6>{{now.getHours()}}:{{now.getMinutes()}}</h6>
+                        </div>
+
+                        <div class="d-flex flex-column text-center mt-5 mb-4">
+                            <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;">
+                                {{currentWeatherData.current.temp_c}}°C </h6>
+                            <span class="small"
+                                style="color: #868B94">{{currentWeatherData.current.condition.text}}</span>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1" style="font-size: 1rem;">
+                                <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1">
+                                        {{currentWeatherData.current.wind_kph}}
+                                        km/h
+                                    </span></div>
+                                <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1">
+                                        {{currentWeatherData.current.humidity}}%
+                                    </span>
+                                </div>
+                                <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1">
+                                        {{currentWeatherData.current.uv}} UV
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                                    width="100px">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <div *ngIf="forecastWeatherData">
     <h3>Forecast</h3>

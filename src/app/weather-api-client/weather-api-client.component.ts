@@ -10,8 +10,13 @@ export class WeatherComponent {
     error: any;
     currentWeatherData: CurrentWeatherResponse | undefined;
     forecastWeatherData: ForecastWeatherResponse | undefined;
+    now: Date = new Date();
 
-    constructor(private weatherService: WeatherApiClientService) { }
+    constructor(private weatherService: WeatherApiClientService) {
+        setInterval(() => {
+          this.now = new Date();
+        }, 1);
+    }
 
     clear() {
         this.forecastWeatherData = undefined;
