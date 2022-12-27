@@ -15,8 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     BrowserModule,
     RouterModule.forRoot([
-      { path: 'weather', component: WeatherComponent },
-      { path: '', component: AppComponent }
+      { path: '', component: WeatherComponent }
     ]),
     HttpClientModule
   ],
