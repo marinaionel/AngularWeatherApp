@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, retry, shareReplay, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface CurrentWeatherResponse {
@@ -159,6 +159,7 @@ export class WeatherApiClientService {
 
     return this.http.get<CurrentWeatherResponse>(this.currentWeatherPath, { params }).pipe(
       retry(3),
+      shareReplay(1),
       catchError(this.handleError)
     );
   }
@@ -168,6 +169,7 @@ export class WeatherApiClientService {
 
     return this.http.get<ForecastWeatherResponse>(this.forecastWeatherPath, { params }).pipe(
       retry(3),
+      shareReplay(1),
       catchError(this.handleError)
     );
   }
