@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather-api-client/weather-api-client.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,10 @@ import { WeatherComponent } from './weather-api-client/weather-api-client.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot([
+      { path: 'weather', component: WeatherComponent },
+      { path: '', component: AppComponent }
+    ]),
     HttpClientModule
   ],
   providers: [],
