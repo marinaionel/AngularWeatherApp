@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather-api-client/weather-api-client.component';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
     WeatherComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     RouterModule.forRoot([
       { path: 'weather', component: WeatherComponent },

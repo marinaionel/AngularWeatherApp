@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CurrentWeatherResponse, ForecastWeatherResponse, WeatherApiClientService } from './weather-api-client.service';
 
 @Component({
-    selector: 'app-config',
     templateUrl: './weather-api-client.component.html',
     providers: [WeatherApiClientService],
     styles: ['.error { color: #b30000; }']

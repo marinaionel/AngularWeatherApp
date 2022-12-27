@@ -1,23 +1,24 @@
 <h3>Get weather</h3>
-<div>
-    <button type="button" (click)="clear(); showCurrentWeather()">get current</button>
-    <button type="button" (click)="clear(); showForecastWeather()">get forecast</button>
-    <button type="button" (click)="clear()">clear</button>
-    <span>
-        <span *ngIf="currentWeatherData">
-            <p>Current weather</p>
-            <p>Humidity: {{currentWeatherData.current.humidity}}</p>
-            <p>Precipitations (mm): {{currentWeatherData.current.precip_mm}}</p>
-            <p>UV index: {{currentWeatherData.current.uv}}</p>
-            <p>Wind (km/h): {{currentWeatherData.current.wind_kph}}</p>
-        </span>
-        <span *ngIf="forecastWeatherData">
-            <p>Forecast weather</p>
-            <p>Avg humidity: {{forecastWeatherData.forecast.forecastday[0].day.avghumidity}}</p>
-            <p>Total precipitations (mm): {{forecastWeatherData.forecast.forecastday[0].day.totalprecip_mm}}</p>
-            <p>UV index: {{forecastWeatherData.forecast.forecastday[0].day.uv}}</p>
-            <p>Max wind (km/h): {{forecastWeatherData.forecast.forecastday[0].day.maxwind_kph}}</p>
-        </span>
-        <p *ngIf="error">Error: {{error}}</p>
-    </span>
+
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)="clear(); showCurrentWeather()">GET CURRENT</button>
+    <button type="button" class="btn btn-default" (click)="clear(); showForecastWeather()">GET FORECAST</button>
+    <button type="button" class="btn btn-default" (click)="clear()">CLEAR</button>
 </div>
+<span>
+    <span *ngIf="currentWeatherData">
+        <p>Current weather</p>
+        <p>Humidity: {{currentWeatherData.current.humidity}}</p>
+        <p>Precipitations (mm): {{currentWeatherData.current.precip_mm}}</p>
+        <p>UV index: {{currentWeatherData.current.uv}}</p>
+        <p>Wind (km/h): {{currentWeatherData.current.wind_kph}}</p>
+    </span>
+    <span *ngIf="forecastWeatherData">
+        <p>Forecast weather</p>
+        <p>Avg humidity: {{forecastWeatherData.forecast.forecastday[0].day.avghumidity}}</p>
+        <p>Total precipitations (mm): {{forecastWeatherData.forecast.forecastday[0].day.totalprecip_mm}}</p>
+        <p>UV index: {{forecastWeatherData.forecast.forecastday[0].day.uv}}</p>
+        <p>Max wind (km/h): {{forecastWeatherData.forecast.forecastday[0].day.maxwind_kph}}</p>
+    </span>
+    <p *ngIf="error">Error: {{error}}</p>
+</span>
